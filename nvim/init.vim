@@ -1,3 +1,6 @@
+" Neovim configuration file
+" https://github.com/skolobov/dotfiles
+
 let g:python_host_prog  = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
@@ -48,3 +51,5 @@ augroup filetype_markdown
   let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
 augroup END
 " }}}
+"
+" vim: ts=2 ft=vim

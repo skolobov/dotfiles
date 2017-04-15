@@ -26,6 +26,9 @@ call plug#begin('~/.cache/vim-plug')
 
     Plug 'bling/vim-airline'
 
+    " Support for .editorconfig
+    Plug 'editorconfig/editorconfig-vim'
+
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-haml'

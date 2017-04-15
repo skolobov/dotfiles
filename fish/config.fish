@@ -1,9 +1,14 @@
 # Fish shell configuration file
 # https://github.com/skolobov/dotfiles
+# vim: ts=2 ft=fish
 
 # Use English (United States) locale
-set -gx LANG "en_US.UTF-8"
-set -gx LC_ALL "en_US.UTF-8"
+set -x LANG "en_US.UTF-8"
+set -x LC_ALL "en_US.UTF-8"
+
+# Use Neovim as default editor
+set -x EDITOR (which nvim)
+set -x VISUAL $EDITOR
 
 # Prompt theme configuration
 set -g default_user skolobov
@@ -29,5 +34,3 @@ if which -s pyenv
 	source (pyenv virtualenv-init - | psub)
 	set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 end
-
-# vim: ts=2 ft=fish

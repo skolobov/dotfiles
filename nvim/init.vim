@@ -17,19 +17,19 @@ set title " Show the filename in the window titlebar
 " Specify a directory for plugins
 call plug#begin('~/.cache/vim-plug')
 
-" Solarized color scheme
-Plug 'altercation/vim-colors-solarized'
+    " Solarized color scheme
+    Plug 'altercation/vim-colors-solarized'
 
-" File type handling
-Plug 'vim-scripts/fish.vim',   { 'for': 'fish' }
-Plug 'tpope/vim-markdown',     { 'for': 'markdown' }
+    " File type handling
+    Plug 'vim-scripts/fish.vim',   { 'for': 'fish' }
+    Plug 'tpope/vim-markdown',     { 'for': 'markdown' }
 
-Plug 'bling/vim-airline'
+    Plug 'bling/vim-airline'
 
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-rails'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-haml'
+    Plug 'tpope/vim-rails'
 
 " Initialize plugin system
 call plug#end()
@@ -38,18 +38,14 @@ syntax enable
 set background=dark
 colorscheme solarized
 
-" Fish {{{
+" Fish
 augroup filetype_fish
-  autocmd!
-  au BufRead,BufNewFile *.fish set ft=fish
+    autocmd!
+    au BufRead,BufNewFile *.fish set ft=fish
 augroup END
-" }}}
 
-" Markdown {{{
+" Markdown
 augroup filetype_markdown
-  autocmd!
-  let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
+    autocmd!
+    let g:markdown_fenced_languages = ['ruby', 'html', 'javascript', 'css', 'erb=eruby.html', 'bash=sh']
 augroup END
-" }}}
-"
-" vim: ts=2 ft=vim

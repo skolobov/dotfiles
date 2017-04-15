@@ -14,7 +14,7 @@ set -x VISUAL $EDITOR
 set -g default_user skolobov
 
 # Alias git to hub if present
-if (which -s hub)
+if [ -n (which -s hub) ]
     function git --description 'Alias for hub, which wraps git to provide extra functionality with GitHub.'
         hub $argv
     end

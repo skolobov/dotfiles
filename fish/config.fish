@@ -13,12 +13,18 @@ set -x VISUAL $EDITOR
 # Prompt theme configuration
 set -g default_user skolobov
 
-# Useful aliases
-alias git=hub
-alias g=git
-alias gs='git status --short'
-alias gd='git diff'
-alias vim=nvim
+# Alias git to hub if present
+if (which -s hub)
+    function git --description 'Alias for hub, which wraps git to provide extra functionality with GitHub.'
+        hub $argv
+    end
+end
+
+# g is short for git (or hub)
+function g; git $argv; end
+
+# use Neovim instead of regular Vim
+function vim; nvim $argv; end
 
 # Proceed only if running an interactive shell
 status --is-interactive; or exit

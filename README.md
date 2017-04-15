@@ -50,6 +50,7 @@ and use one of the [Powerline fonts][]. I recommend using [Nerd Fonts][].
 
 Inspiration and code was taken from many sources, including:
 
+* [Unofficial guide to dotfiles on GitHub](http://dotfiles.github.io)
 * [Cătălin Mariș](https://github.com/alrra/dotfiles)
 * [Gianni Chiappetta](https://github.com/gf3/dotfiles)
 * [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)

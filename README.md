@@ -46,6 +46,20 @@ will need to do a `:PlugInstall`.
 If you want to take full advantage of [airline.vim][] you'll want to install
 and use one of the [Powerline fonts][]. I recommend using [Nerd Fonts][].
 
+## Acknowledgements
+
+Inspiration and code was taken from many sources, including:
+
+* [Cătălin Mariș](https://github.com/alrra/dotfiles)
+* [Gianni Chiappetta](https://github.com/gf3/dotfiles)
+* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+
+
+## License
+
+This project is available under the [BSD 3-Clause License](LICENSE).
+
+
 [Sergei Kolobov]:	https://github.com/skolobov
 [macOS]:			https://www.apple.com/macos/
 [FreeBSD]:			https://www.freebsd.org

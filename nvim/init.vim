@@ -28,6 +28,13 @@ call plug#begin('~/.cache/vim-plug')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    " Show diffs from multiple VCS
+    Plug 'mhinz/vim-signify'
+
+    " NERDTree
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+
     " Support for .editorconfig
     Plug 'editorconfig/editorconfig-vim'
 
@@ -42,6 +49,18 @@ call plug#end()
 set background=dark
 colorscheme solarized
 let g:airline_theme='solarized'
+
+" Use Git and Mercurial diffs for vim-signify plugin
+let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" open NERDTree automatically when vim starts up on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " Fish
 augroup filetype_fish

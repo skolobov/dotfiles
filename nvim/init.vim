@@ -24,22 +24,24 @@ call plug#begin('~/.cache/vim-plug')
     Plug 'vim-scripts/fish.vim',   { 'for': 'fish' }
     Plug 'tpope/vim-markdown',     { 'for': 'markdown' }
 
-    Plug 'bling/vim-airline'
+    " Lean & mean status/tabline
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
     " Support for .editorconfig
     Plug 'editorconfig/editorconfig-vim'
 
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-haml'
     Plug 'tpope/vim-rails'
 
 " Initialize plugin system
 call plug#end()
 
-syntax enable
+" Use Solarized Dark color scheme
 set background=dark
 colorscheme solarized
+let g:airline_theme='solarized'
 
 " Fish
 augroup filetype_fish

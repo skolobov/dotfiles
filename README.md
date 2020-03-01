@@ -7,7 +7,7 @@ I am using them under the following operating systems:
 * [FreeBSD][]
 * [Ubuntu][]
 
-My primary machine is currently a MacBook Pro running macOS 10.12 Sierra.
+My primary machine is currently a MacBook Pro running macOS 10.15 Catalina.
 
 ## Components
 

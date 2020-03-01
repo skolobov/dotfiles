@@ -6,7 +6,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 set shortmess=atI " Don't show the intro message when starting vim
 set cursorline " Highlight current line
-set esckeys " Allow cursor keys in insert mode
 set expandtab " Expand tabs to spaces
 set number " Enable line numbers
 set shiftwidth=2 " The # of spaces for indenting

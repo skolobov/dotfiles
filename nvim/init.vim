@@ -13,6 +13,13 @@ set showtabline=2 " Always show tab bar
 set softtabstop=2 " Tab key results in 2 spaces
 set title " Show the filename in the window titlebar
 
+" Install vim-plug plugin manager if needed
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+endif
+
 " Specify a directory for plugins
 call plug#begin('~/.cache/vim-plug')
 

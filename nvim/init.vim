@@ -23,8 +23,8 @@ endif
 " Specify a directory for plugins
 call plug#begin('~/.cache/vim-plug')
 
-    " Solarized color scheme
-    Plug 'altercation/vim-colors-solarized'
+    " Base16 color schemes
+    Plug 'chriskempson/base16-vim'
 
     " File type handling
     Plug 'vim-scripts/fish.vim',   { 'for': 'fish' }
@@ -51,10 +51,14 @@ call plug#begin('~/.cache/vim-plug')
 " Initialize plugin system
 call plug#end()
 
-" Use Solarized Dark color scheme
+" Use Base16 Tomorrow Night color scheme
 set background=dark
-colorscheme solarized
-let g:airline_theme='solarized'
+let base16colorspace=256
+if filereadable(expand("~/.vimrc_background"))
+  source ~/.vimrc_background
+endif
+colorscheme base16-tomorrow-night
+let g:airline_theme='base16_tomorrow'
 
 " Use Git and Mercurial diffs for vim-signify plugin
 let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]

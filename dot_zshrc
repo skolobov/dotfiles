@@ -180,3 +180,10 @@ eval "$(pyenv init -)"
 
 # added by travis gem
 [ ! -s /Users/skolobov/.travis/travis.sh ] || source /Users/skolobov/.travis/travis.sh
+
+# Completion for YubiKey CLI
+eval "$(aws-vault --completion-script-zsh)"
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

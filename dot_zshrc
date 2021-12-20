@@ -153,6 +153,8 @@ alias g="git"
 alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
+alias h="history"
+alias tg="terragrunt"
 
 # Fix Base16 configuration
 source ~/.config/base16-shell/base16-shell.plugin.zsh

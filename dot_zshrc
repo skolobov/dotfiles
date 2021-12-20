@@ -85,11 +85,30 @@ export HISTSIZE=1500000
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  alias-finder
+  aliases
+  ansible
+  aws
+  brew
+  bundler
+  colored-man-pages
   direnv
+  docker
+  gcloud
+  gem
   gh
   git
-  colored-man-pages
+  git-hubflow
+  gitignore
+  golang
+  gpg-agent
   history-substring-search
+  httpie
+  isodate
+  kubectl
+  kubectx
+  per-directory-history
+  rails
   rvm
   terraform
   tmux

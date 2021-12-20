@@ -1,2 +1,5 @@
+# Install Powerlevel10K Zsh theme if missing
+DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+[[ -d ${DESTDIR} ]] || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${DESTDIR}
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

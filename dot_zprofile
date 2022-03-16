@@ -1,6 +1,13 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Determine Homebrew prefix
+BREW_PREFIX="/opt/homebrew"	# Default for newer macOS versions
+if [[ ! -d ${BREW_PREFIX} ]]; then
+  # Fallback to "classical" prefix from previous versions of macOS
+  BREW_PREFIX="/usr/local"
+fi
 
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+eval "$(${BREW_PREFIX}/bin/brew shellenv)"
+
+FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

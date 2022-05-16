@@ -7,13 +7,13 @@ I am using them under the following operating systems:
 * [FreeBSD][]
 * [Ubuntu][]
 
-My primary machine is currently a MacBook Pro running macOS 10.15 Catalina.
+My primary machine is currently a MacBook Pro running macOS Monterey.
 
 ## Components
 
 These configuration files are for the following systems:
 
-* [Fish][] shell
+* [Zsh][] shell
 * [Neovim][] editor
 * [Git][] DVCS
 
@@ -21,10 +21,6 @@ All of these things are available via [Homebrew][] on [macOS][], and native
 package managers on [FreeBSD][] and [Ubuntu][].
 
 ## Fish
-
-I was previously a long-time [Zsh][] user, but switched to [Fish][] shell
-some time ago and enjoying it very much - [Fish][] has become my favorite
-shell.
 
 Check out [Awesome Fish][] for excellent curated list of awesome tools,
 prompts and other cool nuggets for the amazing Fish shell.

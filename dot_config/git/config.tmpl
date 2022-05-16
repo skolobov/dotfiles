@@ -1,6 +1,6 @@
 [user]
 	name  = Sergei Kolobov
-	email = sergei@kolobov.com
+	email = {{ .email | quote }}
 [core]
   excludesfile = ~/.config/git/ignore
   whitespace = -indent-with-non-tab,trailing-space,cr-at-eol

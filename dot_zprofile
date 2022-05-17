@@ -5,8 +5,10 @@ if [[ ! -d ${BREW_PREFIX} ]]; then
   BREW_PREFIX="/usr/local"
 fi
 
+# Initialize shell environment for Homebrew
 eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 
+# Use functions installed via Homebrew
 FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
 export PYENV_ROOT="$HOME/.pyenv"

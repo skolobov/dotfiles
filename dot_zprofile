@@ -11,6 +11,10 @@ eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 # Use functions installed via Homebrew
 FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 
+# Enable Bash completions compatibility
+autoload bashcompinit && bashcompinit
+FPATH="${BREW_PREFIX}/etc/bash_completion.d:${FPATH}"
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"

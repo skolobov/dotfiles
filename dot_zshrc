@@ -190,6 +190,8 @@ eval "$(pyenv init -)"
 # Completion for YubiKey CLI
 eval "$(aws-vault --completion-script-zsh)"
 
+# kubectl krew plugins
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

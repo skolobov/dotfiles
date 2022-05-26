@@ -4,6 +4,7 @@ if [[ ! -d ${BREW_PREFIX} ]]; then
   # Fallback to "classical" prefix from previous versions of macOS
   BREW_PREFIX="/usr/local"
 fi
+export BREW_PREFIX
 
 # Initialize shell environment for Homebrew
 eval "$(${BREW_PREFIX}/bin/brew shellenv)"

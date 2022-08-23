@@ -26,6 +26,3 @@ DESTDIR="${HOME}/.config/base16-shell"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Check for and add SSH keys to agent if missing
-ssh-add -l > /dev/null || ssh-add
-

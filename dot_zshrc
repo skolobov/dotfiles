@@ -112,7 +112,6 @@ plugins=(
   kubectx
   per-directory-history
   rails
-  rvm
   terraform
   tmux
   z
@@ -169,17 +168,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-. ${BREW_PREFIX}/opt/asdf/libexec/asdf.sh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-#export PATH="$PATH:$HOME/.rvm/bin"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "${BREW_PREFIX}/opt/nvm/nvm.sh" ] && . "${BREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && . "${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-eval "$(pyenv init -)"
-
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
@@ -189,6 +177,8 @@ eval "$(pyenv init -)"
 
 # Completion for YubiKey CLI
 eval "$(aws-vault --completion-script-zsh)"
+
+eval "$(rtx activate zsh)"
 
 # kubectl krew plugins
 export PATH="${PATH}:${HOME}/.krew/bin"

@@ -109,7 +109,6 @@ plugins=(
   httpie
   isodate
   kubectl
-  kubectx
   per-directory-history
   rails
   terraform
@@ -171,9 +170,6 @@ fi
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
-# added by travis gem
-[ ! -s /Users/skolobov/.travis/travis.sh ] || source /Users/skolobov/.travis/travis.sh
 
 # Completion for YubiKey CLI
 eval "$(aws-vault --completion-script-zsh)"

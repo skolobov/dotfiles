@@ -171,7 +171,7 @@ fi
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
-# Completion for YubiKey CLI
+# Completion for aws-vault
 eval "$(aws-vault --completion-script-zsh)"
 
 eval "$(rtx activate zsh)"

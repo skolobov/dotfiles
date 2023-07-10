@@ -97,7 +97,6 @@ plugins=(
   colored-man-pages
   direnv
   docker
-  gcloud
   gem
   gh
   git

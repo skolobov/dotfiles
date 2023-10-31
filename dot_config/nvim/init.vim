@@ -44,9 +44,16 @@ call plug#begin('~/.cache/vim-plug')
     " Support for .editorconfig
     Plug 'editorconfig/editorconfig-vim'
 
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rails'
+
+    Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Initialize plugin system
 call plug#end()
@@ -57,11 +64,17 @@ let base16colorspace=256
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
-colorscheme base16-tomorrow-night
-let g:airline_theme='base16_tomorrow'
+colorscheme catppuccin
+let g:airline_theme = 'catppuccin'
 
 " Use Git and Mercurial diffs for vim-signify plugin
 let g:signify_vcs_list = [ 'git', 'hg', 'svn' ]
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " NERDTree
 " open a NERDTree automatically when vim starts up if no files were specified

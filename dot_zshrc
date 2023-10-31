@@ -71,6 +71,8 @@ export HISTSIZE=1500000
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+source ~/.oh-my-zsh/custom/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -146,11 +148,7 @@ alias gs="git status"
 alias h="history"
 alias tg="terragrunt"
 
-# Fix Base16 configuration
-source ~/.config/base16-shell/base16-shell.plugin.zsh
-if [[ ! -f ~/.base16-theme ]]; then
-  base16_tomorrow-night
-fi
+export BAT_THEME="Catppuccin-mocha"
 
 # 1Password CLI
 export OP_ACCOUNT=kolobov.1password.com

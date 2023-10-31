@@ -22,14 +22,8 @@ function vim; nvim $argv; end
 # Proceed only if running an interactive shell
 status --is-interactive; or exit
 
-# Initialize rbenv if present
-if which -s rbenv
-	source (rbenv init - | psub)
+# Initialize rtx if present
+if which -s rtx
+  rtx activate fish | source
 end
 
-# Initialize pyenv if present
-if which -s pyenv
-	source (pyenv init - | psub)
-	source (pyenv virtualenv-init - | psub)
-	set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-end

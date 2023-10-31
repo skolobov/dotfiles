@@ -1,30 +1,30 @@
 [user]
 	name  = Sergei Kolobov
 	email = {{ .email | quote }}
+
 [core]
   excludesfile = ~/.config/git/ignore
   whitespace = -indent-with-non-tab,trailing-space,cr-at-eol
   quotepath = false
   autocrlf = input
-    pager = delta --syntax-theme base16-256
+  pager = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only
 
 [delta]
-    features = decorations
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  side-by-side = true
 
-[delta "interactive"]
-    keep-plus-minus-markers = false
+[merge]
+  summary = true
+  conflictstyle = diff3
 
-[delta "decorations"]
-    commit-decoration-style = blue ol
-    commit-style = raw
-    file-style = omit
-    hunk-header-decoration-style = blue box
-    hunk-header-file-style = red
-    hunk-header-line-number-style = "#067a00"
-    hunk-header-style = file line-number syntax
+[diff]
+  colorMoved = default
+  indentHeuristic = true
+  compactionHeuristic = true
 
 [alias]
   br = branch
@@ -35,41 +35,21 @@
   st = status
   unstage = reset HEAD --
   uncommit = reset --soft HEAD^
-[commit]
-	template = ~/.config/git/msg_commit
-[diff]
-  indentHeuristic = true
-  compactionHeuristic = true
+
 [apply]
   whitespace = nowarn
-[merge]
-  summary = true
-  conflictstyle = diff3
-[push]
-  default = current
-[hub]
-	protocol = https
-[color]
-  ui = always
-[color "diff"]
-  meta = yellow bold
-  commit = green bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = "red bold 52"
-  newNormal = "green bold"
-  newHighlight = "green bold 22"
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+
 [pull]
 	rebase = true
+
+[push]
+  default = current
+
+[color]
+  ui = always
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

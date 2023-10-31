@@ -13,13 +13,6 @@ set -x VISUAL $EDITOR
 # Prompt theme configuration
 set -g default_user skolobov
 
-# Alias git to hub if present
-if [ -n (which -s hub) ]
-    function git --description 'Alias for hub, which wraps git to provide extra functionality with GitHub.'
-        hub $argv
-    end
-end
-
 # g is short for git (or hub)
 function g; git $argv; end
 

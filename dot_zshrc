@@ -170,4 +170,6 @@ if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
   [[ -e ${ITERM_SHELL_INTEGRATION} ]] && source ${ITERM_SHELL_INTEGRATION}
 fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 eval "$(starship init zsh)"

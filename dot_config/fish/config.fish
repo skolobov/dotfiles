@@ -9,15 +9,13 @@ set -x LC_ALL "en_US.UTF-8"
 # Use Neovim as default editor
 set -x EDITOR (which nvim)
 set -x VISUAL $EDITOR
+function vim; nvim $argv; end
 
 # Prompt theme configuration
 set -g default_user skolobov
 
 # g is short for git (or hub)
 function g; git $argv; end
-
-# use Neovim instead of regular Vim
-function vim; nvim $argv; end
 
 # Proceed only if running an interactive shell
 status --is-interactive; or exit

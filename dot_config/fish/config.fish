@@ -20,8 +20,12 @@ function g; git $argv; end
 # Proceed only if running an interactive shell
 status --is-interactive; or exit
 
-# Initialize rtx if present
-if which -s rtx
-  rtx activate fish | source
-end
+# Starship - cross-shell prompt (https://starship.rs)
+which -s starship && starship init fish | source
+
+# direnv – unclutter your .profile (https://direnv.net)
+which -s direnv && direnv hook fish | source
+
+# rtx - polyglot runtime manager (https://github.com/jdx/rtx)
+which -s rtx && rtx activate fish | source
 

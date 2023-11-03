@@ -173,6 +173,7 @@ if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
   [[ -e ${ITERM_SHELL_INTEGRATION} ]] && source ${ITERM_SHELL_INTEGRATION}
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Initialize fzf(1)
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh
 
 eval "$(starship init zsh)"

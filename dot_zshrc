@@ -169,7 +169,7 @@ eval "$(rtx activate zsh)"
 export PATH="${PATH}:${HOME}/.krew/bin"
 
 if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
-  ITERM_SHELL_INTEGRATION="${HOME}/.iterm2_shell_integration.zsh"
+  ITERM_SHELL_INTEGRATION="${HOME}/config/zsh/iterm2_shell_integration.zsh"
   [[ -e ${ITERM_SHELL_INTEGRATION} ]] && source ${ITERM_SHELL_INTEGRATION}
 fi
 

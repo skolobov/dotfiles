@@ -71,7 +71,10 @@ export HISTSIZE=1500000
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-source ~/.oh-my-zsh/custom/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
+ZSH_THEMES_DIR="~/.config/zsh/themes"
+if [[ -d ${ZSH_THEMES_DIR} ]]; then
+  source ${ZSH_THEMES_DIR}/catppuccin_mocha-zsh-syntax-highlighting.zsh
+fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

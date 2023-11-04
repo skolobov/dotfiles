@@ -161,9 +161,6 @@ compdef _op op
 # Completion for aws-vault
 eval "$(aws-vault --completion-script-zsh)"
 
-# Enable RTX
-eval "$(rtx activate zsh)"
-
 # kubectl krew plugins
 export PATH="${PATH}:${HOME}/.krew/bin"
 
@@ -183,3 +180,7 @@ eval "$(starship init zsh)"
 # direnv – unclutter your .profile (https://direnv.net)
 which direnv &> /dev/null || brew install direnv
 eval "$(direnv hook zsh)"
+
+# rtx - polyglot runtime manager (https://github.com/jdx/rtx)
+eval "$(rtx activate zsh)"
+

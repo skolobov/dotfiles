@@ -89,7 +89,6 @@ plugins=(
   brew
   bundler
   colored-man-pages
-  direnv
   docker
   gem
   gh
@@ -180,3 +179,7 @@ FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 [[ -f "${FZF_CONFIG_DIR}/fzf.zsh" ]] && source "${FZF_CONFIG_DIR}/fzf.zsh"
 
 eval "$(starship init zsh)"
+
+# direnv – unclutter your .profile (https://direnv.net)
+which direnv &> /dev/null || brew install direnv
+eval "$(direnv hook zsh)"

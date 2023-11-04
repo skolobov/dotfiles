@@ -153,12 +153,14 @@ alias tg="terragrunt"
 export BAT_THEME="Catppuccin-mocha"
 
 # 1Password CLI
+which op &> /dev/null || brew install --cask 1password-cli
 export OP_ACCOUNT=kolobov.1password.com
 eval "$(op completion zsh)"
 compdef _op op
 [[ -f  ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
 
 # Completion for aws-vault
+which aws-vault &> /dev/null || brew install --cask aws-vault
 eval "$(aws-vault --completion-script-zsh)"
 
 # kubectl krew plugins
@@ -176,6 +178,7 @@ FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 [[ -f "${FZF_CONFIG_DIR}/fzf.zsh" ]] && source "${FZF_CONFIG_DIR}/fzf.zsh"
 
 # Starship - cross-shell prompt (https://starship.rs)
+which starship &> /dev/null || brew install starship
 eval "$(starship init zsh)"
 
 # direnv – unclutter your .profile (https://direnv.net)
@@ -183,5 +186,6 @@ which direnv &> /dev/null || brew install direnv
 eval "$(direnv hook zsh)"
 
 # rtx - polyglot runtime manager (https://github.com/jdx/rtx)
+which rtx &> /dev/null || brew install rtx
 eval "$(rtx activate zsh)"
 

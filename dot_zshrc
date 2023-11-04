@@ -175,6 +175,7 @@ FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 [[ -d "${FZF_CONFIG_DIR}" ]]      || $(brew --prefix)/opt/fzf/install --xdg --all
 [[ -f "${FZF_CONFIG_DIR}/fzf.zsh" ]] && source "${FZF_CONFIG_DIR}/fzf.zsh"
 
+# Starship - cross-shell prompt (https://starship.rs)
 eval "$(starship init zsh)"
 
 # direnv – unclutter your .profile (https://direnv.net)

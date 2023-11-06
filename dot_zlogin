@@ -27,7 +27,7 @@ which fzf           &> /dev/null || brew install fzf
 which kubectl-krew  &> /dev/null || brew install krew
 which lazygit       &> /dev/null || brew install lazygit
 which op            &> /dev/null || brew install --cask 1password-cli
-which ripgrep       &> /dev/null || brew install ripgrep
+which rg            &> /dev/null || brew install ripgrep
 which rtx           &> /dev/null || brew install rtx
 which starship      &> /dev/null || brew install starship
 

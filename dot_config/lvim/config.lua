@@ -4,6 +4,7 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 lvim.plugins = {
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "github/copilot.vim" },
 }
 
 lvim.colorscheme = "catppuccin"

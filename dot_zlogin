@@ -28,3 +28,10 @@ which kubectl-krew  &> /dev/null || brew install krew
 which op            &> /dev/null || brew install --cask 1password-cli
 which rtx           &> /dev/null || brew install rtx
 which starship      &> /dev/null || brew install starship
+
+# Install LunarVim if missing
+if [[ ! -e ${HOME}/.local/bin/lvim ]]; then
+  LV_BRANCH='release-1.3/neovim-0.9'
+  bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/${LV_BRANCH}/utils/installer/install.sh)
+fi
+

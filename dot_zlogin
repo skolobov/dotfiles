@@ -20,3 +20,10 @@ DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 DESTDIR="${HOME}/.config"
 [[ -d ${DESTDIR} ]]         || mkdir -p ${DESTDIR}
 
+# Install tools if missing
+which aws-vault &> /dev/null || brew install --cask aws-vault
+which direnv    &> /dev/null || brew install direnv
+which fzf       &> /dev/null || brew install fzf
+which op        &> /dev/null || brew install --cask 1password-cli
+which rtx       &> /dev/null || brew install rtx
+which starship  &> /dev/null || brew install starship

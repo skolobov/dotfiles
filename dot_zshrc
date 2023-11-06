@@ -126,7 +126,6 @@ export LC_ALL=${LANG}
 if [[ -n $(which -s nvim) ]]; then
   export EDITOR="~/.local/bin/lvim"
   alias lvim=${EDITOR}
-  alias nvim=$(which nvim)
   alias vim=${EDITOR}
 else
   export EDITOR='vim'

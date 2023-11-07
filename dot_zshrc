@@ -149,6 +149,7 @@ alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
 alias h="history"
+alias ls="lsd"
 alias tg="terragrunt"
 
 export BAT_THEME="Catppuccin-mocha"

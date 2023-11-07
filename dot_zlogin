@@ -23,6 +23,7 @@ DESTDIR="${HOME}/.config"
 # Install tools if missing
 which aws-vault     &> /dev/null || brew install --cask aws-vault
 which direnv        &> /dev/null || brew install direnv
+which fd            &> /dev/null || brew install fd
 which fzf           &> /dev/null || brew install fzf
 which kubectl-krew  &> /dev/null || brew install krew
 which lazygit       &> /dev/null || brew install lazygit

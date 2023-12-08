@@ -48,12 +48,12 @@ symbol = ' '
 
 [directory]
 disabled = false
-truncation_length = 3
+# truncation_length = 3
 # Catppuccin 'lavender'
 style = "bold lavender"
 
 [git_branch]
-truncation_length = 10
+# truncation_length = 10
 #ignore_branches = ['master', 'main']
 
 [git_status]
@@ -83,7 +83,7 @@ disabled = false
 # CompanyGroupAcmeOnCallAccess = 'Acme'
 
 [azure]
-# disabled = true
+disabled = true
 # format = 'on [$symbol($subscription)]($style) '
 # symbol = '󰠅 '
 # style = 'blue bold'

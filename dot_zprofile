@@ -16,7 +16,7 @@ FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
 autoload bashcompinit && bashcompinit
 FPATH="${BREW_PREFIX}/etc/bash_completion.d:${FPATH}"
 
-export PATH="$HOME/.local/share/mise/shims:$PATH"
+export PATH="${HOME}/.local/bin:${HOME}/.local/share/mise/shims:${PATH}"
 
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :

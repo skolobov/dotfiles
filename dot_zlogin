@@ -30,7 +30,7 @@ which lazygit       &> /dev/null || brew install lazygit
 which lsd           &> /dev/null || brew install lsd
 which op            &> /dev/null || brew install --cask 1password-cli
 which rg            &> /dev/null || brew install ripgrep
-which rtx           &> /dev/null || brew install rtx
+which mise          &> /dev/null || curl https://mise.jdx.dev/install.sh | sh
 which starship      &> /dev/null || brew install starship
 
 # Install LunarVim if missing

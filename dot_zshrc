@@ -182,6 +182,6 @@ eval "$(starship init zsh)"
 # direnv – unclutter your .profile (https://direnv.net)
 eval "$(direnv hook zsh)"
 
-# rtx - polyglot runtime manager (https://github.com/jdx/rtx)
-eval "$(rtx activate zsh)"
+# mise - polyglot runtime manager (https://github.com/jdx/mise)
+eval "$(mise activate zsh)"
 

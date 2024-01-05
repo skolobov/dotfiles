@@ -20,18 +20,52 @@ DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 DESTDIR="${HOME}/.config"
 [[ -d ${DESTDIR} ]]         || mkdir -p ${DESTDIR}
 
-# Install tools if missing
-which aws-vault     &> /dev/null || brew install --cask aws-vault
-which direnv        &> /dev/null || brew install direnv
-which fd            &> /dev/null || brew install fd
-which fzf           &> /dev/null || brew install fzf
-which kubectl-krew  &> /dev/null || brew install krew
-which lazygit       &> /dev/null || brew install lazygit
-which lsd           &> /dev/null || brew install lsd
-which op            &> /dev/null || brew install --cask 1password-cli
-which rg            &> /dev/null || brew install ripgrep
-which mise          &> /dev/null || curl https://mise.jdx.dev/install.sh | sh
-which starship      &> /dev/null || brew install starship
+# Function to install packages, choosing the package manager based on the platform
+# 1. Defaults to using the first argument for both brew and apt package names unless explicitly specified.
+# 2. If a package has different names in Homebrew and APT (like fd), specify both names.
+# 3. The script assumes that the respective package managers are set up on each system.
+install_package() {
+  command_name=$1
+  brew_package_name=${2:-$1}
+  apt_package_name=${3:-$1}
+
+  which $command_name &> /dev/null || {
+    case `uname` in
+      Darwin)
+        brew install $brew_package_name
+        ;;
+      Linux)
+        sudo apt-get install -y $apt_package_name
+        ;;
+    esac
+  }
+}
+
+# Package installation commands
+# install_package <command> [brew_package_name] [apt_package_name]
+install_package aws-vault
+install_package direnv
+install_package fd fd fd-find
+install_package fzf
+install_package lazygit
+install_package lsd
+install_package op 1password-cli
+install_package rg ripgrep
+install_package starship
+
+# Install mise, a polyglot tool version manager (https://mise.jdx.dev)
+which mise &> /dev/null || curl https://mise.jdx.dev/install.sh | sh
+
+# Install Krew plugin manager for kubectl (https://krew.sigs.k8s.io)
+which krew &> /dev/null || (
+  set -x; cd "$(mktemp -d)" &&
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
+)
 
 # Install LunarVim if missing
 if [[ ! -e ${HOME}/.local/bin/lvim ]]; then

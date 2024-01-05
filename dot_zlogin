@@ -54,10 +54,10 @@ install_package rg ripgrep
 install_package starship
 
 # Install mise, a polyglot tool version manager (https://mise.jdx.dev)
-which mise &> /dev/null || curl https://mise.jdx.dev/install.sh | sh
+mise version &> /dev/null || curl https://mise.jdx.dev/install.sh | sh
 
 # Install Krew plugin manager for kubectl (https://krew.sigs.k8s.io)
-which krew &> /dev/null || (
+kubectl krew version &> /dev/null || (
   set -x; cd "$(mktemp -d)" &&
   OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
   ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&

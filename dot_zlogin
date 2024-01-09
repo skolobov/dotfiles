@@ -1,3 +1,6 @@
+# Install Oh My Zsh if needed
+[[ -d ${HOME}/.oh-my-zsh ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Create Oh-My-Zsh custom subdirs if missing
 CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 [[ -d ${CUSTOM} ]]         || mkdir -p ${CUSTOM}

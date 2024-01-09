@@ -1,9 +1,15 @@
 # Determine Homebrew prefix
-BREW_PREFIX="/opt/homebrew"	# Default for newer macOS versions
-if [[ ! -d ${BREW_PREFIX} ]]; then
-  # Fallback to "classical" prefix from previous versions of macOS
-  BREW_PREFIX="/usr/local"
-fi
+case `uname` in
+  Darwin)
+    BREW_PREFIX="/opt/homebrew"	# Default for newer macOS versions
+    ;;
+  Linux)
+    BREW_PREFIX="/home/linuxbrew/.linuxbrew"
+    ;;
+esac
+
+# Install Homebrew if missing
+[[ -d ${BREW_PREFIX} ]] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 export BREW_PREFIX
 
 # Initialize shell environment for Homebrew

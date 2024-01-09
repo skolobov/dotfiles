@@ -17,7 +17,7 @@ DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
 # Create ~/.config subdir if missing
 DESTDIR="${HOME}/.config"
-[[ -d ${DESTDIR} ]]         || mkdir -p ${DESTDIR}
+[[ -d ${DESTDIR} ]] || mkdir -p ${DESTDIR}
 
 # Function to install packages, choosing the package manager based on the platform
 # 1. Defaults to using the first argument for both brew and apt package names unless explicitly specified.

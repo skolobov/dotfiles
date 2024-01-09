@@ -19,29 +19,22 @@ DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 DESTDIR="${HOME}/.config"
 [[ -d ${DESTDIR} ]] || mkdir -p ${DESTDIR}
 
-# Function to install packages, choosing the package manager based on the platform
-# 1. Defaults to using the first argument for both brew and apt package names unless explicitly specified.
-# 2. If a package has different names in Homebrew and APT (like fd), specify both names.
-# 3. The script assumes that the respective package managers are set up on each system.
+# Function to install packages, preferring Homebrew and falling back to APT if Homebrew isn't available
 install_package() {
-  command_name=$1
-  brew_package_name=${2:-$1}
-  apt_package_name=${3:-$1}
+    command_name=$1
+    package_name=${2:-$1}
 
-  which $command_name &> /dev/null || {
-    case `uname` in
-      Darwin)
-        brew install $brew_package_name
-        ;;
-      Linux)
-        sudo apt-get install -y $apt_package_name
-        ;;
-    esac
-  }
+    which $command_name &> /dev/null || {
+        if which brew &> /dev/null; then
+            brew install $package_name
+        elif which apt &> /dev/null; then
+            sudo apt install -y $package_name
+        else
+            echo "No suitable package manager found for installing $package_name"
+        fi
+    }
 }
-
 # Package installation commands
-# install_package <command> [brew_package_name] [apt_package_name]
 install_package aws-vault
 install_package direnv
 install_package fd fd fd-find

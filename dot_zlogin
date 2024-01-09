@@ -40,6 +40,7 @@ install_package direnv
 install_package fd
 install_package fzf
 install_package kubectl kuberbetes-cli
+install_package k9s
 install_package lazygit
 install_package lsd
 install_package mise

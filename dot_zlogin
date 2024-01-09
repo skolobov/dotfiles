@@ -7,10 +7,6 @@ CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 [[ -d ${CUSTOM}/themes ]]  || mkdir -p ${CUSTOM}/themes
 [[ -d ${CUSTOM}/plugins ]] || mkdir -p ${CUSTOM}/plugins
 
-# Install Powerlevel10K Zsh theme if missing
-DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-[[ -d ${DESTDIR} ]] || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${DESTDIR}
-
 # Install zsh-autosuggestions Oh-My-Zsh plugin if missing
 DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 [[ -d ${DESTDIR} ]] || git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${DESTDIR}

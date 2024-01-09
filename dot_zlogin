@@ -43,6 +43,7 @@ install_package kubectl kuberbetes-cli
 install_package lazygit
 install_package lsd
 install_package mise
+install_package nvim neovim
 install_package op 1password-cli
 install_package rg ripgrep
 install_package starship

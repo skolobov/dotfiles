@@ -58,3 +58,7 @@ if [[ ! -e ${HOME}/.local/bin/lvim ]]; then
   bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/${LV_BRANCH}/utils/installer/install.sh)
 fi
 
+if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" ]]; then
+    # Check for existing tmux session and attach to it or create a new one
+    tmux attach -t "${USER}" || tmux new-session -s "${USER}"
+fi

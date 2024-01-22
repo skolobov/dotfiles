@@ -65,8 +65,11 @@ behind = '⇣${count}'
 disabled = false
 format = '[$symbol$context( \($namespace\))]($style) '
 
-[kubernetes.context_aliases]
-#'.*:cluster/acme-dev-eks' = 'acme'
+[[kubernetes.contexts]]
+# Contexts from AWS and other cloud providers usually carry additional information, like the region/zone.
+# The following entry matches on the AWS format and renames into a more readable format (`cluster-name`):
+context_pattern = "arn:aws:eks:.*:.*:cluster/(?P<cluster>[\\w-]+)"
+context_alias = "$cluster"
 
 [aws]
 disabled = false

@@ -8,8 +8,6 @@ palette = "catppuccin_mocha"
 add_newline = true
 
 format = """
-$username\
-$hostname\
 $shlvl\
 $directory\
 $git_branch\

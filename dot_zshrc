@@ -154,6 +154,7 @@ alias ls="lsd"
 alias tg="terragrunt"
 
 export BAT_THEME="Catppuccin-mocha"
+[[ -f ~/.cache/bat/themes.bin ]] || bat cache --build
 
 # 1Password CLI
 if [[ "$(uname -s)" == "Darwin" && which op &> /dev/null ]]; then

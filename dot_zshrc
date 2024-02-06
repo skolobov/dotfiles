@@ -156,7 +156,7 @@ alias tg="terragrunt"
 export BAT_THEME="Catppuccin-mocha"
 
 # 1Password CLI
-if [[ "$(uname -s)" == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" && which op &> /dev/null ]]; then
   export OP_ACCOUNT=kolobov.1password.com
   eval "$(op completion zsh)"
   compdef _op op
@@ -164,7 +164,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 fi
 
 # Completion for aws-vault
-eval "$(aws-vault --completion-script-zsh)"
+which aws-vault &> /dev/null && eval "$(aws-vault --completion-script-zsh)"
 
 # kubectl krew plugins
 export PATH="${PATH}:${HOME}/.krew/bin"
@@ -180,11 +180,11 @@ FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 [[ -f "${FZF_CONFIG_DIR}/fzf.zsh" ]] && source "${FZF_CONFIG_DIR}/fzf.zsh"
 
 # Starship - cross-shell prompt (https://starship.rs)
-eval "$(starship init zsh)"
+which starship &> /dev/null && eval "$(starship init zsh)"
 
 # direnv – unclutter your .profile (https://direnv.net)
-eval "$(direnv hook zsh)"
+which direnv &> /dev/null && eval "$(direnv hook zsh)"
 
 # mise - polyglot runtime manager (https://github.com/jdx/mise)
-eval "$(mise activate zsh)"
+which mise &> /dev/null && eval "$(mise activate zsh)"
 

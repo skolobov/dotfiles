@@ -156,10 +156,12 @@ alias tg="terragrunt"
 export BAT_THEME="Catppuccin-mocha"
 
 # 1Password CLI
-export OP_ACCOUNT=kolobov.1password.com
-eval "$(op completion zsh)"
-compdef _op op
-[[ -f  ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export OP_ACCOUNT=kolobov.1password.com
+  eval "$(op completion zsh)"
+  compdef _op op
+  [[ -f  ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
+fi
 
 # Completion for aws-vault
 eval "$(aws-vault --completion-script-zsh)"

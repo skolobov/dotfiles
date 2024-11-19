@@ -111,7 +111,6 @@ plugins=(
   rails
   terraform
   tmux
-  z
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -151,7 +150,6 @@ export VISUAL=${EDITOR}
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias c="clear"
-alias cd="z"
 alias g="git"
 alias gd="git diff"
 alias gl="git log"
@@ -185,6 +183,9 @@ fi
 FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 [[ -d "${FZF_CONFIG_DIR}" ]]      || $(brew --prefix)/opt/fzf/install --xdg --all
 [[ -f "${FZF_CONFIG_DIR}/fzf.zsh" ]] && source "${FZF_CONFIG_DIR}/fzf.zsh"
+
+# zoxide - smarter cd command (https://github.com/ajeetdsouza/zoxide)
+which zoxide &> /dev/null && eval "$(zoxide init --cmd cd zsh)"
 
 # Starship - cross-shell prompt (https://starship.rs)
 which starship &> /dev/null && eval "$(starship init zsh)"

@@ -49,6 +49,7 @@ install_package nvim neovim
 # install_package op 1password-cli
 install_package rg ripgrep
 install_package starship
+install_package zoxide
 
 # Install Krew plugin manager for kubectl (https://krew.sigs.k8s.io)
 kubectl krew version &> /dev/null || brew install krew

@@ -164,11 +164,11 @@ export BAT_THEME="Catppuccin-mocha"
 [[ -f ~/.cache/bat/themes.bin ]] || bat cache --build
 
 # 1Password CLI
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  export OP_ACCOUNT=kolobov.1password.com
-  which op &> /dev/null && eval "$(op completion zsh)" && compdef _op op
-  [[ -f  ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
-fi
+# if [[ "$(uname -s)" == "Darwin" ]]; then
+#   export OP_ACCOUNT=kolobov.1password.com
+#   which op &> /dev/null && eval "$(op completion zsh)" && compdef _op op
+#   [[ -f  ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
+# fi
 
 # Completion for aws-vault
 which aws-vault &> /dev/null && eval "$(aws-vault --completion-script-zsh)"

@@ -130,8 +130,8 @@ export LC_ALL=${LANG}
 
 # Preferred editor for local and remote sessions
 if [[ -n $(which -s nvim) ]]; then
-  export EDITOR="${HOME}/.local/bin/lvim"
-  alias lvim=${EDITOR}
+  export EDITOR="nvim"
+  alias lvim=${HOME}/.local/bin/lvim
   alias vim=${EDITOR}
 else
   export EDITOR='vim'

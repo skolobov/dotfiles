@@ -19,8 +19,6 @@ brew "ansible-lint"
 brew "argocd"
 brew "argocd-autopilot"
 brew "atlantis"
-brew "automake"
-brew "aws-elasticbeanstalk"
 brew "awscli"
 brew "azcopy"
 brew "azure-cli"
@@ -33,12 +31,10 @@ brew "chart-testing"
 brew "chezmoi"
 brew "cmctl"
 brew "cloudflared"
-brew "container-diff"
 brew "coreutils"
 brew "direnv"
 brew "dive"
 brew "eksctl"
-brew "evernote-backup"
 brew "fd"
 brew "fish"
 brew "fzf"
@@ -81,7 +77,6 @@ brew "neovim"
 brew "nmap"
 brew "openssh"
 brew "pango"
-brew "pgcli"
 brew "pipx"
 brew "poppler"
 brew "pre-commit"
@@ -93,7 +88,6 @@ brew "redis"
 brew "ripgrep"
 brew "ruff"
 brew "sops"
-brew "spaceship"
 brew "sql-lint"
 brew "sqlfluff"
 brew "starship"
@@ -115,10 +109,8 @@ brew "watch"
 brew "wget"
 brew "xz"
 brew "yamllint"
-brew "ykman"
 brew "yq"
 brew "zellij"
-brew "zlib"
 brew "zsh"
 brew "aquaproj/aqua/aqua"
 brew "alexnabokikh/tfsort/tfsort"
@@ -130,41 +122,28 @@ brew "getsentry/tools/sentry-cli"
 brew "hashicorp/tap/boundary"
 brew "hashicorp/tap/terraform"
 brew "k8sgpt-ai/k8sgpt/k8sgpt"
-brew "mondoohq/mondoo/mondoo"
 brew "robusta-dev/krr/krr"
 brew "snyk/tap/snyk"
 cask "1password"
 cask "1password-cli"
-cask "alfred"
 cask "alacritty"
 cask "apidog"
 cask "arc"
 cask "aws-vault"
 cask "cf-terraforming"
 cask "choosy"
-cask "chromedriver"
 cask "daisydisk"
 cask "discord"
 cask "docker"
 cask "encryptme"
-cask "evernote"
-cask "finicky"
 cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
-cask "gather"
 cask "google-chrome"
-cask "google-cloud-sdk"
-cask "hashicorp-boundary-desktop"
 cask "iterm2"
-cask "keybase"
-cask "ledger-live"
 cask "lens"
 cask "linear-linear"
 cask "logi-options+"
 cask "mimestream"
-cask "miro"
-cask "mqttx"
-cask "ngrok"
 cask "notion"
 cask "obsidian"
 cask "orbstack"
@@ -180,40 +159,26 @@ cask "wezterm"
 cask "whatsapp"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
-mas "Agenda", id: 1287445660
 mas "Amphetamine", id: 937984704
 mas "AusweisApp2", id: 948660805
-mas "Bear", id: 1091189122
 mas "Boop", id: 1518425043
 mas "Caramba Switcher", id: 1565826179
 mas "Codye", id: 1516894961
 mas "Craft", id: 1487937127
 mas "Dark Reader for Safari", id: 1438243180
 mas "Deliveries", id: 290986013
-mas "Developer", id: 640199958
 mas "Discovery", id: 1381004916
 mas "Display Menu", id: 549083868
 mas "Drafts", id: 1435957248
 mas "DuckDuckGo Privacy for Safari", id: 1482920575
-mas "FruitJuice", id: 671736912
-mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
-mas "Jira", id: 1475897096
 mas "Keynote", id: 409183694
-mas "MQTT Explorer", id: 1455214828
 mas "Magnet", id: 441258766
-mas "MarkEdit", id: 1669953820
-mas "MuteKey", id: 1509590766
-mas "Numbers", id: 409203825
-mas "OneTab", id: 1540160809
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
 mas "Pluralsight", id: 431748264
 mas "Prime Video", id: 545519333
-mas "ReadKit", id: 1615798039
 mas "Reeder", id: 1529448980
-mas "Refined GitHub", id: 1519867270
-mas "Save to Matter", id: 1548677272
 mas "Save to Raindrop.io", id: 1549370672
 mas "Save to Reader", id: 1640236961
 mas "Scan Thing", id: 1556313108
@@ -222,9 +187,6 @@ mas "Super Agent", id: 1568262835
 mas "Surfshark", id: 1437809329
 mas "Things", id: 904280696
 mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
-mas "Yubico Authenticator", id: 1497506650
-mas "iMovie", id: 408981434
 vscode "1Password.op-vscode"
 vscode "DavidAnson.vscode-markdownlint"
 vscode "EditorConfig.EditorConfig"
@@ -233,13 +195,11 @@ vscode "GitHub.copilot-chat"
 vscode "GitHub.github-vscode-theme"
 vscode "GitHub.vscode-pull-request-github"
 vscode "Vue.volar"
-vscode "atlassian.atlascode"
 vscode "benjaminbenais.copilot-theme"
 vscode "casualjim.gotemplate"
 vscode "catppuccin.catppuccin-vsc"
 vscode "catppuccin.catppuccin-vsc-icons"
 vscode "dbaeumer.vscode-eslint"
-vscode "eamodio.gitlens"
 vscode "ecmel.vscode-html-css"
 vscode "esbenp.prettier-vscode"
 vscode "felipecaputo.git-project-manager"
@@ -259,7 +219,6 @@ vscode "matheusq94.TFS"
 vscode "mindaro-dev.file-downloader"
 vscode "mindaro.mindaro"
 vscode "mrmlnc.vscode-json5"
-vscode "ms-azuretools.vscode-docker"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-playwright.playwright"
 vscode "ms-python.black-formatter"
@@ -273,16 +232,12 @@ vscode "ms-toolsai.jupyter-renderers"
 vscode "ms-toolsai.vscode-jupyter-cell-tags"
 vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode.makefile-tools"
 vscode "ms-vsliveshare.vsliveshare"
-vscode "rebornix.ruby"
 vscode "redhat.vscode-commons"
 vscode "redhat.vscode-yaml"
 vscode "snyk-security.snyk-vulnerability-scanner"
 vscode "streetsidesoftware.code-spell-checker"
-vscode "tomphilbin.gruvbox-themes"
 vscode "vscode-icons-team.vscode-icons"
 vscode "vue.volar"
-vscode "wingrunr21.vscode-ruby"
 vscode "yzhang.markdown-all-in-one"
 vscode "zhuangtongfa.material-theme"

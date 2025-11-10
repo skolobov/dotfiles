@@ -185,7 +185,10 @@ FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 [[ -f "${FZF_CONFIG_DIR}/fzf.zsh" ]] && source "${FZF_CONFIG_DIR}/fzf.zsh"
 
 # zoxide - smarter cd command (https://github.com/ajeetdsouza/zoxide)
-which zoxide &> /dev/null && eval "$(zoxide init --cmd cd zsh)"
+# Only enable in interactive shells to avoid Claude Code conflicts
+if [[ $- == *i* ]] && which zoxide &> /dev/null; then
+    eval "$(zoxide init --cmd cd zsh)"
+fi
 
 # Starship - cross-shell prompt (https://starship.rs)
 which starship &> /dev/null && eval "$(starship init zsh)"

@@ -6,12 +6,15 @@
     personal - my own Mac: personal apps plus any number of work contexts
     work     - a work-issued Mac: shared tooling and that work context only
 
+  clouds: cloud providers whose CLIs to install (aws, gcp, azure)
+
   workContexts: one entry per work context, entered at init as
     name|~/Code/Dir|email; name2|~/Code/Dir2|email2
   Edit later with `chezmoi edit-config`; existing entries are kept on re-init.
 */ -}}
 {{- $profile := promptChoiceOnce . "profile" "Machine profile" (list "personal" "work") -}}
 {{- $email := promptStringOnce . "email" "Default Git email for this machine" -}}
+{{- $clouds := promptMultichoiceOnce . "clouds" "Cloud providers" (list "aws" "gcp" "azure") -}}
 {{- $contexts := list -}}
 {{- if hasKey . "workContexts" -}}
 {{-   $contexts = .workContexts -}}
@@ -27,6 +30,7 @@
 data:
   profile: {{ $profile | quote }}
   email: {{ $email | quote }}
+  clouds: {{ $clouds | toJson }}
 {{- if $contexts }}
   workContexts:
 {{-   range $contexts }}

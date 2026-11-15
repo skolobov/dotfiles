@@ -12,12 +12,13 @@ macOS dotfiles managed with [chezmoi](https://www.chezmoi.io).
 
 ## Machine profiles
 
-`chezmoi init` asks three questions and stores the answers only in the
+`chezmoi init` asks four questions and stores the answers only in the
 local `~/.config/chezmoi/chezmoi.yaml`, never in this repo:
 
 - **Profile:** `personal` for my own Mac, `work` for a work-issued Mac.
   Personal apps and App Store installs only land on `personal`.
 - **Default Git email** for the machine.
+- **Cloud providers:** any of `aws`, `gcp` and `azure`; only their CLIs get installed.
 - **Work contexts:** `name|~/Code/Dir|email` entries separated by `;`.
   Each one gets a Git `includeIf` so commits under that directory use the
   matching email. Leave blank on a work Mac where the default email is

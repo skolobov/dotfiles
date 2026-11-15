@@ -1,75 +1,66 @@
-# [Sergei Kolobov][] dotfiles
+# Sergei Kolobov's dotfiles
 
-These configuration files are meant to be cross-platform as much as possible.
-I am using them under the following operating systems:
+macOS dotfiles managed with [chezmoi](https://www.chezmoi.io).
 
-* [macOS][]
-* [FreeBSD][]
-* [Ubuntu][]
+## What's inside
 
-My primary machine is currently a MacBook Pro running macOS Monterey.
+- Zsh with [Oh My Zsh](https://ohmyz.sh) and [Starship](https://starship.rs), plus a Fish config
+- [Neovim](https://neovim.io) with [LazyVim](https://www.lazyvim.org)
+- Git with [delta](https://github.com/dandavison/delta) and per-directory work identities
+- Ghostty, Herdr, tmux, bat, fzf and other CLI tooling
+- Homebrew packages split by machine profile
 
-## Components
+## Machine profiles
 
-These configuration files are for the following systems:
+`chezmoi init` asks three questions and stores the answers only in the
+local `~/.config/chezmoi/chezmoi.yaml`, never in this repo:
 
-* [Zsh][] shell
-* [Neovim][] editor
-* [Git][] DVCS
+- **Profile:** `personal` for my own Mac, `work` for a work-issued Mac.
+  Personal apps and App Store installs only land on `personal`.
+- **Default Git email** for the machine.
+- **Work contexts:** `name|~/Code/Dir|email` entries separated by `;`.
+  Each one gets a Git `includeIf` so commits under that directory use the
+  matching email. Leave blank on a work Mac where the default email is
+  already the work one.
 
-All of these things are available via [Homebrew][] on [macOS][], and native
-package managers on [FreeBSD][] and [Ubuntu][].
+Work-specific Homebrew packages go in `~/.config/chezmoi/Brewfile.local`,
+which is also never committed.
 
-## Fish
+## New Mac
 
-Check out [Awesome Fish][] for excellent curated list of awesome tools,
-prompts and other cool nuggets for the amazing Fish shell.
+Install the Xcode Command Line Tools, then let chezmoi do the rest:
 
-Additionally, [Fish shell cookbook][] contains a lot of tips and recipes for
-[Fish][].
+```shell
+xcode-select --install
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "${TMPDIR}" init --apply skolobov
+```
 
-## Neovim
+This clones the repo over HTTPS, installs Homebrew, applies the dotfiles
+and runs `brew bundle`. To push changes later, switch the remote to SSH once
+your keys are set up:
 
-Sensible defaults for all the things! Check out my [Neovim config][] for more
-info. It is pretty well documented.
+```shell
+chezmoi git -- remote set-url origin git@github.com:skolobov/dotfiles.git
+```
 
-Vim plugins are managed with [vim-plug][], so on first run in [Neovim][] you
-will need to do a `:PlugInstall`.
+## Day to day
 
+```shell
+chezmoi diff                        # preview changes
+chezmoi apply                       # apply them
+chezmoi re-add                      # pull local edits back into the repo
+chezmoi update                      # pull from GitHub and apply
+chezmoi apply --refresh-externals   # update Oh My Zsh and plugins now
+chezmoi edit-config                 # change profile or work contexts
+```
 
-## Fonts
+## Keeping the repo clean
 
-If you want to take full advantage of [airline.vim][] you'll want to install
-and use one of the [Powerline fonts][]. I recommend using [Nerd Fonts][].
-
-## Acknowledgements
-
-Inspiration and code was taken from many sources, including:
-
-* [Unofficial guide to dotfiles on GitHub](http://dotfiles.github.io)
-* [Cătălin Mariș](https://github.com/alrra/dotfiles)
-* [Gianni Chiappetta](https://github.com/gf3/dotfiles)
-* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
-
+This repo is public. A pre-commit hook in `.githooks` runs
+[gitleaks](https://github.com/gitleaks/gitleaks) and blocks any staged change
+that mentions a local work context name, email domain or directory.
+chezmoi enables it on each machine.
 
 ## License
 
-This project is available under the [BSD 3-Clause License](LICENSE).
-
-
-[Sergei Kolobov]:	https://github.com/skolobov
-[macOS]:			https://www.apple.com/macos/
-[FreeBSD]:			https://www.freebsd.org
-[Ubuntu]:			https://www.ubuntu.com
-[Homebrew]:			http://brew.sh
-[Fish]:				http://fishshell.com
-[Neovim]:			http://neovim.io
-[Git]:				https://git-scm.com
-[Zsh]:				http://zsh.org
-[Awesome Fish]:		https://github.com/jbucaran/awesome-fish
-[Fish shell cookbook]:	https://github.com/jbucaran/fish-shell-cookbook
-[Neovim config]:	neovim/init.vim
-[vim-plug]:			https://github.com/junegunn/vim-plug
-[airline.vim]:		https://github.com/bling/vim-airline
-[Powerline fonts]:	https://github.com/Lokaltog/powerline-fonts
-[Nerd Fonts]:		http://nerdfonts.com
+[BSD 3-Clause](LICENSE).

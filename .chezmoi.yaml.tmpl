@@ -37,5 +37,12 @@ data:
 {{- else }}
   workContexts: []
 {{- end }}
+# Externals (Oh My Zsh and plugins) are third-party code refreshed weekly;
+# keep them out of diff and status so local changes stay reviewable.
 diff:
   pager: delta
+  exclude:
+    - externals
+status:
+  exclude:
+    - externals

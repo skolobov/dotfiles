@@ -77,7 +77,7 @@ setopt INC_APPEND_HISTORY
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-ZSH_THEMES_DIR="~/.config/zsh/themes"
+ZSH_THEMES_DIR="${HOME}/.config/zsh/themes"
 if [[ -d ${ZSH_THEMES_DIR} ]]; then
   source ${ZSH_THEMES_DIR}/catppuccin_mocha-zsh-syntax-highlighting.zsh
 fi
@@ -128,7 +128,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=${LANG}
 
 # Preferred editor for local and remote sessions
-if [[ -n $(which -s nvim) ]]; then
+if command -v nvim &> /dev/null; then
   export EDITOR="nvim"
   alias lvim=${HOME}/.local/bin/lvim
   alias vim=${EDITOR}

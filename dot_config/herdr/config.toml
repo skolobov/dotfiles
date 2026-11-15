@@ -1,0 +1,18 @@
+onboarding = false
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+agent_panel_sort = "priority"
+status_indicators = "symbols"
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui.sound]
+enabled = true
+
+[experimental]
+switch_ascii_input_source_in_prefix = true

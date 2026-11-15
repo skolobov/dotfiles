@@ -1,0 +1,4 @@
+#!/bin/sh
+# Enable the leak-guard hooks shipped in the dotfiles repo.
+set -eu
+git -C {{ .chezmoi.sourceDir | quote }} config core.hooksPath .githooks

@@ -55,12 +55,6 @@
 [apply]
   whitespace = nowarn
 
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-
 [gpg]
 	program = {{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}/bin/gpg
 {{- /* Per-context identities; the include files come from run_onchange_after_20-git-contexts */}}

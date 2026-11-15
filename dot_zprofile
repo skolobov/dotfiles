@@ -8,8 +8,6 @@ case `uname` in
     ;;
 esac
 
-# Install Homebrew if missing
-[[ -d ${BREW_PREFIX} ]] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 export BREW_PREFIX
 
 # Initialize shell environment for Homebrew

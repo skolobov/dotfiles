@@ -1,43 +1,4 @@
-# Create ~/.config subdir if missing
-DESTDIR="${HOME}/.config"
-[[ -d ${DESTDIR} ]] || mkdir -p ${DESTDIR}
-
-# Function to install packages, preferring Homebrew and falling back to APT if Homebrew isn't available
-install_package() {
-    command_name=$1
-    package_name=${2:-$1}
-
-    which $command_name &> /dev/null || {
-        if which brew &> /dev/null; then
-            brew install $package_name
-        elif which apt &> /dev/null; then
-            sudo apt install -y $package_name
-        else
-            echo "No suitable package manager found for installing $package_name"
-        fi
-    }
-}
-# Package installation commands
-install_package aws-vault
-install_package direnv
-install_package fd
-install_package fzf
-install_package delta git-delta
-install_package kubectl kubernetes-cli
-install_package k9s
-install_package lazygit
-install_package lsd
-install_package mise
-install_package nvim neovim
-# install_package op 1password-cli
-install_package rg ripgrep
-install_package starship
-install_package zoxide
-
-# Install Krew plugin manager for kubectl (https://krew.sigs.k8s.io)
-kubectl krew version &> /dev/null || brew install krew
-
+# Attach to (or create) a tmux session when logging in over SSH
 if [[ (-n "$SSH_CLIENT" || -n "$SSH_CONNECTION") && "${TERM_PROGRAM}" != "tmux" ]]; then
-    # Check for existing tmux session and attach to it or create a new one
     tmux attach -t "${USER}" || tmux new-session -s "${USER}"
 fi

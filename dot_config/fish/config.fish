@@ -2,6 +2,13 @@
 # https://github.com/skolobov/dotfiles
 # vim: ts=2 ft=fish
 
+# Initialize shell environment for Homebrew
+if test -d /opt/homebrew
+    eval (/opt/homebrew/bin/brew shellenv)
+else if test -d /usr/local/Homebrew
+    eval (/usr/local/Homebrew/bin/brew shellenv)
+end
+
 # Use English (United States) locale
 set -x LANG "en_US.UTF-8"
 set -x LC_ALL "en_US.UTF-8"
@@ -9,13 +16,17 @@ set -x LC_ALL "en_US.UTF-8"
 # Use Neovim as default editor
 set -x EDITOR (which nvim)
 set -x VISUAL $EDITOR
-function vim; nvim $argv; end
+function vim
+    nvim $argv
+end
 
 # Prompt theme configuration
 set -g default_user skolobov
 
 # g is short for git (or hub)
-function g; git $argv; end
+function g
+    git $argv
+end
 
 # Proceed only if running an interactive shell
 status --is-interactive; or exit
@@ -27,5 +38,4 @@ which -s starship && starship init fish | source
 which -s direnv && direnv hook fish | source
 
 # rtx - polyglot runtime manager (https://github.com/jdx/rtx)
-which -s rtx && rtx activate fish | source
-
+which -s mise && mise activate fish | source

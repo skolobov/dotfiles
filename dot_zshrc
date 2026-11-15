@@ -87,25 +87,19 @@ fi
 plugins=(
   alias-finder
   aliases
-  ansible
   aws
   brew
-  bundler
   colored-man-pages
   docker
-  gem
   gh
   git
-  git-hubflow
   gitignore
-  golang
   gpg-agent
   history-substring-search
   httpie
   isodate
   kubectl
   per-directory-history
-  rails
   terraform
   tmux
   zsh-autosuggestions

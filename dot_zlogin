@@ -1,20 +1,3 @@
-# Install Oh My Zsh if needed
-[[ -d ${HOME}/.oh-my-zsh ]] || sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Create Oh-My-Zsh custom subdirs if missing
-CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-[[ -d ${CUSTOM} ]]         || mkdir -p ${CUSTOM}
-[[ -d ${CUSTOM}/themes ]]  || mkdir -p ${CUSTOM}/themes
-[[ -d ${CUSTOM}/plugins ]] || mkdir -p ${CUSTOM}/plugins
-
-# Install zsh-autosuggestions Oh-My-Zsh plugin if missing
-DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-[[ -d ${DESTDIR} ]] || git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${DESTDIR}
-
-# Install zsh-syntax-highlighting Oh-My-Zsh plugin if missing
-DESTDIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-[[ -d ${DESTDIR} ]] || git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${DESTDIR}
-
 # Create ~/.config subdir if missing
 DESTDIR="${HOME}/.config"
 [[ -d ${DESTDIR} ]] || mkdir -p ${DESTDIR}

@@ -1,4 +1,3 @@
-# Attach to (or create) a tmux session when logging in over SSH
-if [[ (-n "$SSH_CLIENT" || -n "$SSH_CONNECTION") && "${TERM_PROGRAM}" != "tmux" ]]; then
-    tmux attach -t "${USER}" || tmux new-session -s "${USER}"
-fi
+# Zsh login hook, sourced after .zshrc in login shells.
+# Intentionally empty: environment setup lives in .zprofile, interactive
+# settings in .zshrc.

@@ -46,6 +46,7 @@ symbol = ' '
 
 [directory]
 disabled = false
+truncate_to_repo = false
 # truncation_length = 3
 # Catppuccin 'lavender'
 style = "bold lavender"

@@ -1,0 +1,41 @@
+---
+###########################
+## Markdown Linter rules ##
+###########################
+#
+# Based on Super-Linter's bundled template (TEMPLATES/.markdown-lint.yml) with
+# MD013 switched off, so a local verdict matches what Super-Linter gives in CI.
+#
+# This file is the FALLBACK for repos with no markdownlint config of their own.
+# markdownlint-cli2 only searches from the linted file up to the project root,
+# never into $HOME, so pass it explicitly (see the `mdlint` alias in ~/.zshrc).
+# A repo that ships its own config still wins.
+#
+# Linter rules doc: https://github.com/DavidAnson/markdownlint
+#
+# To silence a single violation:
+# <!-- markdownlint-disable -->
+# any violations you want
+# <!-- markdownlint-restore -->
+
+###############
+# Rules by id #
+###############
+MD004: false # Unordered list style
+MD007:
+  indent: 2 # Unordered list indentation
+MD013: false # Line length: off, matching .editorconfig and Prettier proseWrap
+MD026:
+  punctuation: ".,;:!。，；:" # List of not allowed
+MD029: false # Ordered list item prefix
+MD033: false # Allow inline HTML
+MD036: false # Emphasis used instead of a heading
+
+#################
+# Rules by tags #
+#################
+# Deliberate divergence from Super-Linter setups that set
+# `blank_lines: false`. That disables the whole blank_lines tag — including
+# MD022 (headings) and MD032 (lists), the rules that enforce "lists should
+# always be separated from a heading by an empty line". Left
+# enabled; disable individual rules instead if one proves noisy.

@@ -1,0 +1,36 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+# Install Homebrew packages for this machine's profile ({{ .profile }}).
+# Re-runs whenever .chezmoidata/packages.yaml or the local Brewfile changes.
+{{- $local := joinPath .chezmoi.homeDir ".config/chezmoi/Brewfile.local" }}
+# Brewfile.local hash: {{ if stat $local }}{{ include $local | sha256sum }}{{ else }}none{{ end }}
+set -eu
+eval "$({{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}/bin/brew shellenv)"
+
+brew bundle --no-upgrade --file=- <<'BREWFILE'
+{{ range .packages.common.taps -}}
+tap {{ . | quote }}
+{{ end -}}
+{{ range .packages.common.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.common.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ range .packages.common.vscode -}}
+vscode {{ . | quote }}
+{{ end -}}
+{{ if eq .profile "personal" -}}
+{{ range .packages.personal.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ range .packages.personal.mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
+{{ end -}}
+BREWFILE
+
+if [ -f "${HOME}/.config/chezmoi/Brewfile.local" ]; then
+  brew bundle --no-upgrade --file="${HOME}/.config/chezmoi/Brewfile.local"
+fi
+{{ end -}}

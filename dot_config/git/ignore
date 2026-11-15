@@ -28,3 +28,5 @@ Temporary Items
 
 # Always ignore Python cache
 __pycache__
+
+**/.claude/settings.local.json

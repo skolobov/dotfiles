@@ -157,6 +157,7 @@ alias gs="git status"
 alias h="history"
 alias ls="lsd"
 alias tg="terragrunt"
+alias mdlint="markdownlint-cli2 --config ~/.markdownlint.yml"
 
 export BAT_THEME="Catppuccin-mocha"
 [[ -f ~/.cache/bat/themes.bin ]] || bat cache --build
@@ -187,7 +188,7 @@ FZF_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fzf"
 # zoxide - smarter cd command (https://github.com/ajeetdsouza/zoxide)
 # Only enable in interactive shells to avoid Claude Code conflicts
 if [[ $- == *i* ]] && which zoxide &> /dev/null; then
-    eval "$(zoxide init --cmd cd zsh)"
+    eval "$(zoxide init zsh)"
 fi
 
 # Starship - cross-shell prompt (https://starship.rs)

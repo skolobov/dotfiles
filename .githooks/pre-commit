@@ -1,0 +1,19 @@
+#!/bin/sh
+# Block commits that would leak secrets or work details into this public repo.
+# Work context terms are read from local chezmoi data, so they are never stored here.
+set -eu
+
+gitleaks git --pre-commit --staged --redact --no-banner .
+
+terms=$(chezmoi data --format json | jq -r '
+  .workContexts[]? | .name, (.email | split("@")[1]), (.dir | rtrimstr("/") | split("/") | last)
+' | sort -u)
+[ -n "${terms}" ] || exit 0
+pattern=$(printf '%s\n' "${terms}" | paste -sd '|' -)
+
+hits=$( { git diff --cached --name-only; git diff --cached -U0 | grep '^+' || true; } | grep -inE "${pattern}" || true)
+if [ -n "${hits}" ]; then
+  echo "pre-commit: staged changes mention a local work context:" >&2
+  printf '%s\n' "${hits}" >&2
+  exit 1
+fi

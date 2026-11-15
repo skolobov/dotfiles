@@ -1,0 +1,41 @@
+{{- /*
+  Machine-specific data. Answers are stored only in the local
+  ~/.config/chezmoi/chezmoi.yaml and never committed to this public repo.
+
+  profile:
+    personal - my own Mac: personal apps plus any number of work contexts
+    work     - a work-issued Mac: shared tooling and that work context only
+
+  workContexts: one entry per work context, entered at init as
+    name|~/Code/Dir|email; name2|~/Code/Dir2|email2
+  Edit later with `chezmoi edit-config`; existing entries are kept on re-init.
+*/ -}}
+{{- $profile := promptChoiceOnce . "profile" "Machine profile" (list "personal" "work") -}}
+{{- $email := promptStringOnce . "email" "Default Git email for this machine" -}}
+{{- $contexts := list -}}
+{{- if hasKey . "workContexts" -}}
+{{-   $contexts = .workContexts -}}
+{{- else -}}
+{{-   $raw := promptString "Work contexts (name|~/Code/Dir|email; ... or blank)" "" -}}
+{{-   range $entry := splitList ";" $raw -}}
+{{-     $f := splitList "|" $entry -}}
+{{-     if eq (len $f) 3 -}}
+{{-       $contexts = append $contexts (dict "name" (index $f 0 | trim | lower) "dir" (index $f 1 | trim) "email" (index $f 2 | trim)) -}}
+{{-     end -}}
+{{-   end -}}
+{{- end -}}
+data:
+  profile: {{ $profile | quote }}
+  email: {{ $email | quote }}
+{{- if $contexts }}
+  workContexts:
+{{-   range $contexts }}
+    - name: {{ .name | quote }}
+      dir: {{ .dir | quote }}
+      email: {{ .email | quote }}
+{{-   end }}
+{{- else }}
+  workContexts: []
+{{- end }}
+diff:
+  pager: delta

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Write per-context Git identity files included by ~/.config/git/config.
+# Values come from local chezmoi data and never land in the repo.
+set -eu
+mkdir -p "${HOME}/.config/git"
+{{- range .workContexts }}
+git config --file "${HOME}/.config/git/{{ .name }}.config" user.email {{ .email | quote }}
+{{- end }}

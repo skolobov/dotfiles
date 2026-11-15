@@ -1,6 +1,9 @@
 {{- if eq .chezmoi.os "darwin" -}}
+{{- $groups := list "common" -}}
+{{- if eq .profile "personal" }}{{ $groups = append $groups "personal" }}{{ end -}}
+{{- range .clouds }}{{ $groups = append $groups . }}{{ end -}}
 #!/bin/sh
-# Install Homebrew packages for this machine's profile ({{ .profile }}).
+# Install Homebrew packages for: {{ $groups | join ", " }}.
 # Re-runs whenever .chezmoidata/packages.yaml or the local Brewfile changes.
 {{- $local := joinPath .chezmoi.homeDir ".config/chezmoi/Brewfile.local" }}
 # Brewfile.local hash: {{ if stat $local }}{{ include $local | sha256sum }}{{ else }}none{{ end }}
@@ -8,26 +11,21 @@ set -eu
 eval "$({{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}/bin/brew shellenv)"
 
 brew bundle --no-upgrade --file=- <<'BREWFILE'
-{{ range .packages.common.taps -}}
+{{ range $g := $groups }}{{ range (get (index $.packages $g) "taps" | default (list)) -}}
 tap {{ . | quote }}
-{{ end -}}
-{{ range .packages.common.brews -}}
+{{ end }}{{ end -}}
+{{ range $g := $groups }}{{ range (get (index $.packages $g) "brews" | default (list)) -}}
 brew {{ . | quote }}
-{{ end -}}
-{{ range .packages.common.casks -}}
+{{ end }}{{ end -}}
+{{ range $g := $groups }}{{ range (get (index $.packages $g) "casks" | default (list)) -}}
 cask {{ . | quote }}
-{{ end -}}
-{{ range .packages.common.vscode -}}
+{{ end }}{{ end -}}
+{{ range $g := $groups }}{{ range (get (index $.packages $g) "vscode" | default (list)) -}}
 vscode {{ . | quote }}
-{{ end -}}
-{{ if eq .profile "personal" -}}
-{{ range .packages.personal.casks -}}
-cask {{ . | quote }}
-{{ end -}}
-{{ range .packages.personal.mas -}}
+{{ end }}{{ end -}}
+{{ range $g := $groups }}{{ range (get (index $.packages $g) "mas" | default (list)) -}}
 mas {{ .name | quote }}, id: {{ .id }}
-{{ end -}}
-{{ end -}}
+{{ end }}{{ end -}}
 BREWFILE
 
 if [ -f "${HOME}/.config/chezmoi/Brewfile.local" ]; then

@@ -1,20 +1,19 @@
-# Homebrew packages, installed by .chezmoiscripts/run_onchange_before_10-brew-bundle.
-# Work-specific packages never go here: put them in the machine's local
-# ~/.config/chezmoi/Brewfile.local instead.
+# Homebrew packages, installed by .chezmoiscripts/run_onchange_after_10-brew-bundle.
+# common is installed everywhere, personal only on the personal profile, and
+# aws/gcp/azure only when chosen at init. Machine-specific extras go in the
+# local ~/.config/chezmoi/Brewfile.local instead.
 packages:
   common:
     taps:
-      - "alexnabokikh/tfsort"
-      - "azure/azure-workload-identity"
-      - "azure/kubelogin"
       - "cloudflare/cloudflare"
-      - "derailed/popeye"
-      - "future-architect/tap"
-      - "getsentry/tools"
-      - "hashicorp/tap"
       - "k8sgpt-ai/k8sgpt"
       - "robusta-dev/krr"
+      - "derailed/popeye"
+      - "future-architect/tap"
+      - "hashicorp/tap"
       - "snyk/tap"
+      - "alexnabokikh/tfsort"
+      - "getsentry/tools"
     brews:
       - "act"
       - "actionlint"
@@ -25,11 +24,6 @@ packages:
       - "argocd"
       - "argocd-autopilot"
       - "atlantis"
-      - "aws-sso-util"
-      - "awscli"
-      - "azcopy"
-      - "azure-cli"
-      - "azure/azure-workload-identity/azwi"
       - "bat"
       - "bazelisk"
       - "bfg"
@@ -52,7 +46,6 @@ packages:
       - "dos2unix"
       - "dotenv-linter"
       - "editorconfig-checker"
-      - "eksctl"
       - "exiftool"
       - "eza"
       - "fd"
@@ -87,7 +80,6 @@ packages:
       - "krew"
       - "robusta-dev/krr/krr"
       - "kubectx"
-      - "azure/kubelogin/kubelogin"
       - "kubent"
       - "kubeseal"
       - "lazygit"
@@ -115,7 +107,6 @@ packages:
       - "podman"
       - "derailed/popeye/popeye"
       - "poppler"
-      - "powershell"
       - "pre-commit"
       - "prettier"
       - "protobuf"
@@ -162,20 +153,17 @@ packages:
       - "1password-cli"
       - "antigravity-cli"
       - "apidog"
-      - "aws-vault-binary"
       - "claude"
       - "cmux"
       - "codex"
       - "drawio"
       - "firefox"
       - "font-jetbrains-mono-nerd-font"
-      - "gcloud-cli"
       - "ghostty"
       - "google-chrome"
       - "lens"
       - "ngrok"
       - "orbstack"
-      - "session-manager-plugin"
       - "slack"
       - "alexnabokikh/tfsort/tfsort"
       - "visual-studio-code"
@@ -294,3 +282,24 @@ packages:
       - { name: "Windows App", id: 1295203466 }
       - { name: "WireGuard", id: 1451685025 }
       - { name: "Xcode", id: 497799835 }
+  aws:
+    brews:
+      - "aws-sso-util"
+      - "awscli"
+      - "eksctl"
+    casks:
+      - "aws-vault-binary"
+      - "session-manager-plugin"
+  gcp:
+    casks:
+      - "gcloud-cli"
+  azure:
+    taps:
+      - "azure/azure-workload-identity"
+      - "azure/kubelogin"
+    brews:
+      - "azcopy"
+      - "azure-cli"
+      - "azure/azure-workload-identity/azwi"
+      - "azure/kubelogin/kubelogin"
+      - "powershell"

@@ -69,7 +69,6 @@ packages:
       - "derailed/popeye/popeye"
       - "pre-commit"
       - "prettier"
-      - "reattach-to-user-namespace"
       - "redis"
       - "ripgrep"
       - "ruff"
@@ -84,7 +83,6 @@ packages:
       - "future-architect/tap/tftarget"
       - "tig"
       - "tldr"
-      - "tmux"
       - "trivy"
       - "usage"
       - "uv"
@@ -93,7 +91,6 @@ packages:
       - "wget"
       - "yamllint"
       - "yq"
-      - "zellij"
       - "zoxide"
       - "zsh"
     casks:

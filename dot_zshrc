@@ -100,7 +100,6 @@ plugins=(
   kubectl
   per-directory-history
   terraform
-  tmux
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

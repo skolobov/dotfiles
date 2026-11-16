@@ -113,8 +113,6 @@ packages:
       - "zoxide"
       - "zsh"
     casks:
-      - "1password"
-      - "1password-cli"
       - "antigravity-cli"
       - "apidog"
       - "claude"
@@ -201,6 +199,8 @@ packages:
       - "pdfcpu"
       - "poppler"
     casks:
+      - "1password"
+      - "1password-cli"
       - "arc"
       - "choosy"
       - "daisydisk"

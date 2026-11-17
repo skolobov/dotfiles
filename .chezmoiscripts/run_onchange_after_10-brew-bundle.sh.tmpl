@@ -9,6 +9,13 @@
 # Brewfile.local hash: {{ if stat $local }}{{ include $local | sha256sum }}{{ else }}none{{ end }}
 set -eu
 eval "$({{ if eq .chezmoi.arch "arm64" }}/opt/homebrew{{ else }}/usr/local{{ end }}/bin/brew shellenv)"
+{{- $taps := list }}
+{{- range $g := $groups }}{{ $taps = concat $taps (get (index $.packages $g) "taps" | default (list)) }}{{ end }}
+
+# Homebrew only loads formulae and casks from third-party taps it trusts.
+{{- if $taps }}
+brew trust --tap{{ range $taps | uniq }} {{ . | quote }}{{ end }}
+{{- end }}
 
 brew bundle --no-upgrade --file=- <<'BREWFILE'
 {{ range $g := $groups }}{{ range (get (index $.packages $g) "taps" | default (list)) -}}
@@ -28,7 +35,13 @@ mas {{ .name | quote }}, id: {{ .id }}
 {{ end }}{{ end -}}
 BREWFILE
 
-if [ -f "${HOME}/.config/chezmoi/Brewfile.local" ]; then
-  brew bundle --no-upgrade --file="${HOME}/.config/chezmoi/Brewfile.local"
+local_brewfile="${HOME}/.config/chezmoi/Brewfile.local"
+if [ -f "${local_brewfile}" ]; then
+  local_taps=$(sed -n 's/^tap "\([^"]*\)".*/\1/p' "${local_brewfile}")
+  if [ -n "${local_taps}" ]; then
+    # shellcheck disable=SC2086 # one argument per tap
+    brew trust --tap ${local_taps}
+  fi
+  brew bundle --no-upgrade --file="${local_brewfile}"
 fi
 {{ end -}}

@@ -223,7 +223,8 @@ packages:
       - "azure/kubelogin"
     brews:
       - "azcopy"
-      - "azure-cli"
       - "azure/azure-workload-identity/azwi"
       - "azure/kubelogin/kubelogin"
       - "powershell"
+    casks:
+      - "azure-cli"

@@ -37,7 +37,6 @@ packages:
       - "mas"
       - "mise"
       - "neovim"
-      - "openssh"
       - "pre-commit"
       - "ripgrep"
       - "ruff"

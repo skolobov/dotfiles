@@ -183,3 +183,5 @@ which direnv &> /dev/null && eval "$(direnv hook zsh)"
 # mise - polyglot runtime manager (https://github.com/jdx/mise)
 which mise &> /dev/null && eval "$(mise activate zsh)"
 
+# Worktrunk - Git worktree manager (https://worktrunk.dev)
+command -v wt &> /dev/null && eval "$(command wt config shell init zsh)"

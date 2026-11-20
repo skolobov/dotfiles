@@ -7,7 +7,7 @@ macOS dotfiles managed with [chezmoi](https://www.chezmoi.io).
 - Zsh with [Oh My Zsh](https://ohmyz.sh) and [Starship](https://starship.rs), plus a Fish config
 - [Neovim](https://neovim.io) with [LazyVim](https://www.lazyvim.org)
 - Git with [delta](https://github.com/dandavison/delta) and per-directory work identities
-- Ghostty, Herdr, bat, fzf and other CLI tooling
+- Ghostty, Herdr, Worktrunk, bat, fzf and other CLI tooling
 - Homebrew packages split by machine profile
 
 ## Machine profiles

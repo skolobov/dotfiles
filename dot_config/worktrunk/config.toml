@@ -1,0 +1,5 @@
+# Worktrunk user config. See https://worktrunk.dev/config/
+
+# Worktrees go next to the repos in a shared .worktrees dir:
+# ~/Code/Project/repo -> ~/Code/Project/.worktrees/repo/<branch>
+worktree-path = "{{ repo_path }}/../.worktrees/{{ repo }}/{{ branch | sanitize }}"

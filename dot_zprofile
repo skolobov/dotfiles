@@ -1,26 +1,16 @@
-# Determine Homebrew prefix
-case `uname` in
-  Darwin)
-    BREW_PREFIX="/opt/homebrew"	# Default for newer macOS versions
-    ;;
-  Linux)
-    BREW_PREFIX="/home/linuxbrew/.linuxbrew"
-    ;;
-esac
+# Homebrew: Apple Silicon, Intel or Linux; skipped quietly until it's installed
+for brew in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  [[ -x "${brew}" ]] && eval "$("${brew}" shellenv zsh)" && break
+done
+unset brew
 
-export BREW_PREFIX
-
-# Initialize shell environment for Homebrew
-eval "$(${BREW_PREFIX}/bin/brew shellenv)"
-
-# Use functions installed via Homebrew
-FPATH="${BREW_PREFIX}/share/zsh/site-functions:${FPATH}"
-
-# Enable Bash completions compatibility
-autoload bashcompinit && bashcompinit
-FPATH="${BREW_PREFIX}/etc/bash_completion.d:${FPATH}"
-
-export PATH="${HOME}/.local/bin:${HOME}/.local/share/mise/shims:${PATH}"
+# User tools first; mise shims let non-interactive shells find mise tools
+typeset -U path
+path=(
+  ~/.local/bin(N-/)
+  ~/.local/share/mise/shims(N-/)
+  $path
+)
 
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :

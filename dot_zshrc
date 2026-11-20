@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 
-# Disable warning about "insecure" directories in ${BREW_PREFIX}/share/zsh
+# Disable warning about "insecure" directories in ${HOMEBREW_PREFIX}/share/zsh
 ZSH_DISABLE_COMPFIX=true
 
 # Set name of the theme to load --- if set to "random", it will

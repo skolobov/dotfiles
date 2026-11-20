@@ -68,7 +68,6 @@ packages:
       - "raycast"
       - "visual-studio-code"
     vscode:
-      - "1password.op-vscode"
       - "anthropic.claude-code"
       - "benjaminbenais.copilot-theme"
       - "casualjim.gotemplate"
@@ -168,6 +167,8 @@ packages:
       - "textexpander"
       - "vlc"
       - "whatsapp"
+    vscode:
+      - "1password.op-vscode"
     mas:
       - { name: "1Password for Safari", id: 1569813296 }
       - { name: "AmneziaWG", id: 6478942365 }

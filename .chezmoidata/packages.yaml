@@ -50,6 +50,7 @@ packages:
       - "uv"
       - "watch"
       - "wget"
+      - "worktrunk"
       - "yamllint"
       - "yq"
       - "zoxide"

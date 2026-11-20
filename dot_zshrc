@@ -84,6 +84,13 @@ fi
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# ssh-agent: reuse the macOS agent and load passphrases stored in the Keychain
+# (store one once with: /usr/bin/ssh-add --apple-use-keychain ~/.ssh/<key>)
+zstyle :omz:plugins:ssh-agent honor-existing yes
+zstyle :omz:plugins:ssh-agent ssh-add-args --apple-load-keychain
+zstyle :omz:plugins:ssh-agent quiet yes
+
 plugins=(
   alias-finder
   aliases
@@ -99,6 +106,7 @@ plugins=(
   isodate
   kubectl
   per-directory-history
+  ssh-agent
   terraform
   zsh-autosuggestions
   zsh-syntax-highlighting

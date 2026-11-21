@@ -1,41 +1,36 @@
 # Fish shell configuration file
 # https://github.com/skolobov/dotfiles
-# vim: ts=2 ft=fish
 
-# Initialize shell environment for Homebrew
-if test -d /opt/homebrew
-    eval (/opt/homebrew/bin/brew shellenv)
-else if test -d /usr/local/Homebrew
-    eval (/usr/local/Homebrew/bin/brew shellenv)
+# Homebrew: Apple Silicon or Intel
+for brew in /opt/homebrew/bin/brew /usr/local/bin/brew
+    if test -x $brew
+        $brew shellenv fish | source
+        break
+    end
 end
 
-# Use English (United States) locale
-set -x LANG "en_US.UTF-8"
-set -x LC_ALL "en_US.UTF-8"
+# User tools first; mise shims let non-interactive shells find mise tools
+fish_add_path --global --move ~/.local/bin ~/.local/share/mise/shims
+fish_add_path --global --append ~/.krew/bin
 
-# Use Neovim as default editor
-set -x EDITOR (which nvim)
-set -x VISUAL $EDITOR
-function vim
-    nvim $argv
+set -gx LANG en_US.UTF-8
+set -gx LC_ALL $LANG
+
+# Preferred editor
+if type -q nvim
+    set -gx EDITOR nvim
+    alias vim nvim
+else
+    set -gx EDITOR vim
 end
+set -gx VISUAL $EDITOR
 
-# Prompt theme configuration
-set -g default_user skolobov
+alias g git
 
-# g is short for git (or hub)
-function g
-    git $argv
-end
+status is-interactive; or exit
 
-# Proceed only if running an interactive shell
-status --is-interactive; or exit
-
-# Starship - cross-shell prompt (https://starship.rs)
-which -s starship && starship init fish | source
-
-# direnv – unclutter your .profile (https://direnv.net)
-which -s direnv && direnv hook fish | source
-
-# rtx - polyglot runtime manager (https://github.com/jdx/rtx)
-which -s mise && mise activate fish | source
+type -q fzf; and fzf --fish | source
+type -q zoxide; and zoxide init fish | source
+type -q starship; and starship init fish | source
+type -q direnv; and direnv hook fish | source
+type -q mise; and mise activate fish | source
